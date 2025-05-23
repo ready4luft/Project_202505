@@ -1,0 +1,17 @@
+import UIKit
+
+class BombViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(explode))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func explode() {
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = .black
+            self.view.transform = CGAffineTransform(scaleX: 10, y: 10)
+            self.view.alpha = 0
+        }
+    }
+}
